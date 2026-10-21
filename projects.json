@@ -1,0 +1,243 @@
+{
+  "site": {
+    "title": "Robbin · 项目",
+    "domain": "projects.fankai.me",
+    "identity": "范凯（Robbin），25 年技术研发与产品经验。创办 JavaEye，曾担任 CSDN 和丁香园 CTO，现在专注 AI 实践和课程。",
+    "nav": [
+      {
+        "label": "主站",
+        "href": "https://fankai.me/"
+      },
+      {
+        "label": "新闻站",
+        "href": "https://news.fankai.me/"
+      },
+      {
+        "label": "课程站",
+        "href": "https://fankaishuo.ai/"
+      }
+    ],
+    "social": [
+      {
+        "name": "X",
+        "href": "https://x.com/fankaishuoai",
+        "icon": "x"
+      },
+      {
+        "name": "YouTube",
+        "href": "https://www.youtube.com/@fankaishuoai",
+        "icon": "youtube"
+      },
+      {
+        "name": "GitHub",
+        "href": "https://github.com/robbin",
+        "icon": "github"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "recent",
+      "title": "近期项目（AI / Agent）",
+      "description": "围绕 Agent 的工程实践：让 Agent 能接力干活、能看新闻、能操作手机，也能从旧应用里把数据取出来。",
+      "projects": [
+        {
+          "id": "grokbot-local-agent",
+          "name": "grokbot-local-agent",
+          "repo": "robbin/grokbot-local-agent",
+          "featured": true,
+          "tagline": "让 Grok Bot 把重活交给同机的 Pi Agent，任务干完后反过来把 Bot 叫醒。",
+          "highlights": [
+            "每个委派任务都有 ID、状态和产物目录，完成后只通过 webhook 发送 id、owner、state 和 exit_code，Bot 醒来后回读文件、核对结果再汇报。",
+            "对话轮次可能早已结束，通知只是延迟优化，磁盘状态才是唯一事实来源；漏掉 webhook 时用 pi-task pending 补收，而不是重跑任务。",
+            "给任务记录派发者 owner，pending 和 ack 都按 owner 过滤，避免多个 Bot 互相汇报别人的工作。"
+          ],
+          "stack": [
+            "Node.js 22+",
+            "Pi RPC",
+            "Bash",
+            "Webhook"
+          ],
+          "links": [],
+          "stars": 36,
+          "language": "JavaScript"
+        },
+        {
+          "id": "agent-relay",
+          "name": "agent-relay",
+          "repo": "robbin/agent-relay",
+          "featured": true,
+          "tagline": "用 Git 仓库做传输层，让本地 Agent 和云端 Agent 互相交接任务。",
+          "highlights": [
+            "一个任务一个 Markdown 文件，状态从 pending 到 accepted 再到 done 或 blocked，结果写回同一个文件；Git 负责传输和历史，不需要数据库。",
+            "云端由 webhook 唤醒，本地由 launchd 定时同步拉取（约 5 分钟），不常驻本地 Agent、不轮询模型；睡醒或断网只会延迟，不会丢状态。",
+            "附带任务协议、只拉取的同步脚本、GitHub Actions 通知模板，以及本地／云端两份 Agent skill，是一套照着部署的参考实现。"
+          ],
+          "stack": [
+            "Git",
+            "Bash",
+            "GitHub Actions",
+            "launchd",
+            "Markdown"
+          ],
+          "links": [],
+          "stars": 12,
+          "language": "Shell"
+        },
+        {
+          "id": "x-news",
+          "name": "x-news",
+          "repo": "robbin/x-news",
+          "featured": false,
+          "tagline": "社区热点新闻站 news.fankai.me 的源码：报告用 Markdown 写，导航和首页在构建时生成。",
+          "highlights": [
+            "Daily、中文话题和英文话题三类报告按目录增删即可，hooks/autonav.py 在构建时生成导航、分类 index 和首页，不用手改 mkdocs.yml。",
+            "中英文用 mkdocs-static-i18n 的后缀布局，根路径是中文、/en/ 是英文，缺英文稿自动回退；页头、首页和页脚订阅入口由 presentation.py 注入。",
+            "push 到 main 由 GitHub Actions 构建发布到 GitHub Pages，报告本身由 News bot 通过 x-research 技能生成，仓库里不放凭据和订阅者数据。"
+          ],
+          "stack": [
+            "MkDocs Material",
+            "Python",
+            "GitHub Pages"
+          ],
+          "links": [
+            {
+              "label": "news.fankai.me",
+              "href": "https://news.fankai.me/"
+            }
+          ],
+          "stars": 6,
+          "language": "Python"
+        },
+        {
+          "id": "android-adb-control",
+          "name": "android-adb-control",
+          "repo": "robbin/android-adb-control",
+          "featured": false,
+          "tagline": "给 Agent 的安卓手机操作技能：先看界面，再走一步，验证结果后才决定下一步。",
+          "highlights": [
+            "纯指令型 Agent Skill，不是 MCP Server 或后台服务；Pi、Codex CLI、Claude Code 和 OpenCode 共用同一份 SKILL.md 与参考文档。",
+            "默认限制 30 次设备状态变更和 5 分钟，发送、购买、删除、安装等动作必须单独授权，发送状态不明时不会自动重发。",
+            "明确不碰锁屏、验证码、支付验证和企业策略，也不做无人值守监控；截图和 UI XML 可能带隐私，交云端模型前要先确认数据策略。"
+          ],
+          "stack": [
+            "Agent Skill",
+            "ADB",
+            "Bash",
+            "Python"
+          ],
+          "links": [],
+          "stars": 84,
+          "language": "Python"
+        },
+        {
+          "id": "wechat-exporter",
+          "name": "wechat-exporter",
+          "repo": "robbin/wechat-exporter",
+          "featured": false,
+          "tagline": "把 macOS 微信 4.x 的 SQLCipher 本地库恢复成标准 SQLite，用来导出自己的聊天记录和联系人。",
+          "highlights": [
+            "原来依赖的上游项目已下线，仓库改成一套可执行的实现规范：页面布局、密钥派生与 HMAC、逐页解密、WAL 处理和验收标准，Agent 可以据此从零写工具。",
+            "验收要求全页 HMAC、独立内容比对和逐库结论，只看文件头、表名或 integrity_check 不算恢复成功；未覆盖的版本差异必须明说。",
+            "产物是明文 SQLite，不是整理好的聊天文本，正文编码、联系人与附件关联仍需后续处理；也只覆盖客户端 db_storage 中实际存在的记录。"
+          ],
+          "stack": [
+            "Agent Skill",
+            "SQLCipher",
+            "SQLite",
+            "Python"
+          ],
+          "links": [],
+          "stars": 215,
+          "language": null
+        }
+      ]
+    },
+    {
+      "id": "historical",
+      "title": "历史项目",
+      "description": "手工写代码的年代留下来的三个 Ruby 项目，以及一篇关于 ORM 缓存的设计模式文章。",
+      "projects": [
+        {
+          "id": "javaeye3",
+          "name": "javaeye3",
+          "repo": "robbin/javaeye3",
+          "featured": false,
+          "tagline": "JavaEye 社区网站的源代码，Ruby on Rails，2006–2013 年的中国技术社区。",
+          "highlights": [
+            "整个代码库约 7 万行 Ruby 与页面模板代码，Robbin 直接贡献了三万多行。",
+            "公开前移除了旧提交历史和一份含账号密码的敏感配置，源码本身已不再运行，保留下来是给手工写代码的年代留个记录。",
+            "附带《Web 应用的缓存设计模式》：从细颗粒度表设计和 n + 1 主键查询讲到 second_level_cache 二级对象缓存。"
+          ],
+          "stack": [
+            "Ruby on Rails 2.3",
+            "MySQL",
+            "memcached"
+          ],
+          "links": [
+            {
+              "label": "缓存设计模式",
+              "href": "https://github.com/robbin/javaeye3/blob/main/web_cache_strategy.md"
+            }
+          ],
+          "stars": 67,
+          "language": "HTML"
+        },
+        {
+          "id": "robbin_site",
+          "name": "robbin_site",
+          "repo": "robbin/robbin_site",
+          "featured": false,
+          "tagline": "Robbin 当年的个人博客站，也是一份 ORM 缓存设计模式的教学级完整示例。",
+          "highlights": [
+            "Padrino（基于 Sinatra 的轻量框架，不是 Rails）配 ActiveRecord 和 memcached，约 2500 行 Ruby 与模板代码，跑在 thin / zbatery 上。",
+            "model 层大量使用 acts_as_cached 和 second_level_cache，把多表关联拆成主键查询加对象缓存，用减少磁盘 IO 换性能。",
+            "仓库里的 webcache.md 就是那篇缓存设计模式文章，配合代码可以直接对照阅读。"
+          ],
+          "stack": [
+            "Ruby",
+            "Padrino",
+            "ActiveRecord",
+            "memcached",
+            "MySQL"
+          ],
+          "links": [
+            {
+              "label": "缓存设计模式",
+              "href": "https://github.com/robbin/robbin_site/blob/master/webcache.md"
+            }
+          ],
+          "stars": 687,
+          "language": "Ruby"
+        },
+        {
+          "id": "sinatratest",
+          "name": "sinatratest",
+          "repo": "robbin/sinatratest",
+          "featured": false,
+          "tagline": "用 Sinatra 写 Ruby Web Service 的服务端模板项目，把 Ruby 的性能尽量榨出来。",
+          "highlights": [
+            "轻量组合：Sinatra + ActiveRecord + MySQL，配 Oj 做 JSON 序列化，用 second_level_cache 和 Dalli 做对象缓存，生产环境跑在 Rainbows 上。",
+            "test.md 用 siege 压测，对比了 Fiber 池、多线程、多进程三种并发模型，以及 Rainbows 和 Puma、Dalli 和 redis-store。",
+            "实测结论：同样 2 个进程，Fiber 池或多线程完成同一批请求约 72–77 秒，多进程要约 251 秒，快了 3 倍多，每个进程内存只有 50–60MB。"
+          ],
+          "stack": [
+            "Ruby",
+            "Sinatra",
+            "ActiveRecord",
+            "memcached",
+            "Rainbows"
+          ],
+          "links": [
+            {
+              "label": "压测记录",
+              "href": "https://github.com/robbin/sinatratest/blob/master/test.md"
+            }
+          ],
+          "stars": 135,
+          "language": "Ruby"
+        }
+      ]
+    }
+  ]
+}
