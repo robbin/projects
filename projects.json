@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "Robbin · 项目",
+    "title": "范凯说AI · 开源项目",
     "domain": "projects.fankai.me",
     "identity": "2003 年创办 JavaEye，推动开源技术在中国开发者中的普及；曾任 CSDN、丁香园 CTO，带队打造服务上千万人的丁香医生在线问诊和上亿人使用的疫情地图。现在专注 AI 实践与课程，用 AI 创造价值，把个人能力经营成事业。",
     "nav": [
@@ -33,7 +33,8 @@
         "href": "https://github.com/robbin",
         "icon": "github"
       }
-    ]
+    ],
+    "description": "范凯（Robbin）的开源项目合集：近期的 AI Agent 工程实践，以及 JavaEye 等手写代码年代的经典 Ruby 项目。"
   },
   "sections": [
     {

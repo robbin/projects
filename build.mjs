@@ -191,7 +191,12 @@ const html = `<!doctype html>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <title>${escapeHtml(site.title)}</title>
-  <meta name="description" content="${escapeHtml(site.identity)}">
+  <meta name="description" content="${escapeHtml(site.description)}">
+  <link rel="icon" href="assets/favicon.png">
+  <meta property="og:title" content="${escapeHtml(site.title)}">
+  <meta property="og:description" content="${escapeHtml(site.description)}">
+  <meta property="og:url" content="https://projects.fankai.me/">
+  <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
