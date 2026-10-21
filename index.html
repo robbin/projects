@@ -42,7 +42,7 @@
     <p class="identity">2003 年创办 JavaEye，推动开源技术在中国开发者中的普及；曾任 CSDN、丁香园 CTO，带队打造服务上千万人的丁香医生在线问诊和上亿人使用的疫情地图。现在专注 AI 实践与课程，用 AI 创造价值，把个人能力经营成事业。</p>
     <dl class="hero-stats">
       <div><dt>开源项目</dt><dd>8</dd></div>
-      <div><dt>GitHub Stars</dt><dd>1,242</dd></div>
+      <div><dt>GitHub Stars</dt><dd>1,246</dd></div>
       <div><dt>近期 AI / Agent</dt><dd>5</dd></div>
     </dl>
   </section>
@@ -59,14 +59,15 @@
           <h3><a href="https://github.com/robbin/grokbot-local-agent" target="_blank" rel="noopener">grokbot-local-agent</a></h3>
           <span class="badge">精选</span>
         </header>
-        <p class="tagline">让 Grok Bot 把重活交给同机的 Pi Agent，任务干完后反过来把 Bot 叫醒。</p>
+        <p class="tagline">让 Grok Bot 把重活交给同机的 Pi Agent，任务干完后反过来把 Bot 叫醒；<br>还能在 Telegram 上全程旁观 Pi 怎么干活。</p>
         <ul class="highlights">
           <li>每个委派任务都有 ID、状态和产物目录，完成后只通过 webhook 发送 id、owner、state 和 exit_code，Bot 醒来后回读文件、核对结果再汇报。</li>
           <li>对话轮次可能早已结束，通知只是延迟优化，磁盘状态才是唯一事实来源；漏掉 webhook 时用 pi-task pending 补收，而不是重跑任务。</li>
           <li>给任务记录派发者 owner，pending 和 ack 都按 owner 过滤，避免多个 Bot 互相汇报别人的工作。</li>
+          <li>可选的 Telegram 旁观模块：每个 Pi 会话在手机上一条滚动更新的进度消息，回复结束另发最终结果全文；只发不收，推送前自动遮蔽疑似密钥。</li>
         </ul>
         <ul class="stack" aria-label="技术栈">
-          <li>Node.js 22+</li><li>Pi RPC</li><li>Bash</li><li>Webhook</li>
+          <li>Node.js 22+</li><li>Pi RPC</li><li>Bash</li><li>Webhook</li><li>Telegram Bot API</li>
         </ul>
         <footer class="card-foot">
           <a class="meta-link" href="https://github.com/robbin/grokbot-local-agent" target="_blank" rel="noopener">GitHub<svg class="icon-arrow" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M3.2 8.8 8.8 3.2M4.4 3.2h4.4v4.4"/></svg></a>
@@ -74,7 +75,7 @@
           <div class="stats">
           <span class="stat" title="GitHub stars">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 2.5 2.94 5.96 6.58.96-4.76 4.64 1.12 6.55L12 17.52l-5.88 3.09 1.12-6.55L2.48 9.42l6.58-.96z"/></svg>
-          36
+          38
         </span>
           <span class="stat" title="主要语言">
           <span class="lang-dot" style="--lang-color:#f1e05a"></span>JavaScript
@@ -102,7 +103,7 @@
           <div class="stats">
           <span class="stat" title="GitHub stars">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 2.5 2.94 5.96 6.58.96-4.76 4.64 1.12 6.55L12 17.52l-5.88 3.09 1.12-6.55L2.48 9.42l6.58-.96z"/></svg>
-          12
+          13
         </span>
           <span class="stat" title="主要语言">
           <span class="lang-dot" style="--lang-color:#89e051"></span>Shell
@@ -158,7 +159,7 @@
           <div class="stats">
           <span class="stat" title="GitHub stars">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 2.5 2.94 5.96 6.58.96-4.76 4.64 1.12 6.55L12 17.52l-5.88 3.09 1.12-6.55L2.48 9.42l6.58-.96z"/></svg>
-          84
+          85
         </span>
           <span class="stat" title="主要语言">
           <span class="lang-dot" style="--lang-color:#3572a5"></span>Python

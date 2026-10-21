@@ -47,20 +47,22 @@
           "name": "grokbot-local-agent",
           "repo": "robbin/grokbot-local-agent",
           "featured": true,
-          "tagline": "让 Grok Bot 把重活交给同机的 Pi Agent，任务干完后反过来把 Bot 叫醒。",
+          "tagline": "让 Grok Bot 把重活交给同机的 Pi Agent，任务干完后反过来把 Bot 叫醒；\n还能在 Telegram 上全程旁观 Pi 怎么干活。",
           "highlights": [
             "每个委派任务都有 ID、状态和产物目录，完成后只通过 webhook 发送 id、owner、state 和 exit_code，Bot 醒来后回读文件、核对结果再汇报。",
             "对话轮次可能早已结束，通知只是延迟优化，磁盘状态才是唯一事实来源；漏掉 webhook 时用 pi-task pending 补收，而不是重跑任务。",
-            "给任务记录派发者 owner，pending 和 ack 都按 owner 过滤，避免多个 Bot 互相汇报别人的工作。"
+            "给任务记录派发者 owner，pending 和 ack 都按 owner 过滤，避免多个 Bot 互相汇报别人的工作。",
+            "可选的 Telegram 旁观模块：每个 Pi 会话在手机上一条滚动更新的进度消息，回复结束另发最终结果全文；只发不收，推送前自动遮蔽疑似密钥。"
           ],
           "stack": [
             "Node.js 22+",
             "Pi RPC",
             "Bash",
-            "Webhook"
+            "Webhook",
+            "Telegram Bot API"
           ],
           "links": [],
-          "stars": 36,
+          "stars": 38,
           "language": "JavaScript"
         },
         {
@@ -82,7 +84,7 @@
             "Markdown"
           ],
           "links": [],
-          "stars": 12,
+          "stars": 13,
           "language": "Shell"
         },
         {
@@ -128,7 +130,7 @@
             "Python"
           ],
           "links": [],
-          "stars": 84,
+          "stars": 85,
           "language": "Python"
         },
         {

@@ -140,7 +140,7 @@ function renderCard(project) {
           <h3><a href="${repoUrl}" target="_blank" rel="noopener">${escapeHtml(project.name)}</a></h3>
           ${isFeatured ? '<span class="badge">精选</span>' : ""}
         </header>
-        <p class="tagline">${escapeHtml(project.tagline)}</p>
+        <p class="tagline">${escapeHtml(project.tagline).replace(/\n/g, "<br>")}</p>
         <ul class="highlights">
 ${highlights}
         </ul>
