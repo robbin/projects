@@ -42,7 +42,7 @@
     <p class="identity">2003 年创办 JavaEye，推动开源技术在中国开发者中的普及；曾任 CSDN、丁香园 CTO，带队打造服务上千万人的丁香医生在线问诊和上亿人使用的疫情地图。现在专注 AI 实践与课程，用 AI 创造价值，把个人能力经营成事业。</p>
     <dl class="hero-stats">
       <div><dt>开源项目</dt><dd>8</dd></div>
-      <div><dt>GitHub Stars</dt><dd>1,246</dd></div>
+      <div><dt>GitHub Stars</dt><dd>1,248</dd></div>
       <div><dt>近期 AI / Agent</dt><dd>5</dd></div>
     </dl>
   </section>
@@ -75,7 +75,7 @@
           <div class="stats">
           <span class="stat" title="GitHub stars">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 2.5 2.94 5.96 6.58.96-4.76 4.64 1.12 6.55L12 17.52l-5.88 3.09 1.12-6.55L2.48 9.42l6.58-.96z"/></svg>
-          38
+          39
         </span>
           <span class="stat" title="主要语言">
           <span class="lang-dot" style="--lang-color:#f1e05a"></span>JavaScript
@@ -88,11 +88,12 @@
           <h3><a href="https://github.com/robbin/agent-relay" target="_blank" rel="noopener">agent-relay</a></h3>
           <span class="badge">精选</span>
         </header>
-        <p class="tagline">用 Git 仓库做传输层，让本地 Agent 和云端 Agent 互相交接任务。</p>
+        <p class="tagline">用 Git 仓库做传输层，让本地 Agent 和云端 Agent 双向自动接力任务。</p>
         <ul class="highlights">
           <li>一个任务一个 Markdown 文件，状态从 pending 到 accepted 再到 done 或 blocked，结果写回同一个文件；Git 负责传输和历史，不需要数据库。</li>
-          <li>云端由 webhook 唤醒，本地由 launchd 定时同步拉取（约 5 分钟），不常驻本地 Agent、不轮询模型；睡醒或断网只会延迟，不会丢状态。</li>
-          <li>附带任务协议、只拉取的同步脚本、GitHub Actions 通知模板，以及本地／云端两份 Agent skill，是一套照着部署的参考实现。</li>
+          <li>双向自动派发：本地交给云端的任务由 webhook 唤醒云端 Bot；云端交给本地的任务写上 Executor 字段，由本地 relay-runner 每 5 分钟自动领取，派给 Paseo 等 Agent 执行，做完写回结果。</li>
+          <li>安全边界写进实现：按任务显式 opt-in、单任务锁、干净工作区检查、目录白名单，角色或模型不可用就标 blocked 不偷换，发布删除部署这类操作只准备不执行。</li>
+          <li>附带任务协议、只拉取的同步脚本、可选的自动执行器、GitHub Actions 通知模板和本地／云端两份 Agent skill，是一套照着部署的参考实现。</li>
         </ul>
         <ul class="stack" aria-label="技术栈">
           <li>Git</li><li>Bash</li><li>GitHub Actions</li><li>launchd</li><li>Markdown</li>
@@ -103,7 +104,7 @@
           <div class="stats">
           <span class="stat" title="GitHub stars">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 2.5 2.94 5.96 6.58.96-4.76 4.64 1.12 6.55L12 17.52l-5.88 3.09 1.12-6.55L2.48 9.42l6.58-.96z"/></svg>
-          13
+          14
         </span>
           <span class="stat" title="主要语言">
           <span class="lang-dot" style="--lang-color:#89e051"></span>Shell

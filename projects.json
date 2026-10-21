@@ -62,7 +62,7 @@
             "Telegram Bot API"
           ],
           "links": [],
-          "stars": 38,
+          "stars": 39,
           "language": "JavaScript"
         },
         {
@@ -70,11 +70,12 @@
           "name": "agent-relay",
           "repo": "robbin/agent-relay",
           "featured": true,
-          "tagline": "用 Git 仓库做传输层，让本地 Agent 和云端 Agent 互相交接任务。",
+          "tagline": "用 Git 仓库做传输层，让本地 Agent 和云端 Agent 双向自动接力任务。",
           "highlights": [
             "一个任务一个 Markdown 文件，状态从 pending 到 accepted 再到 done 或 blocked，结果写回同一个文件；Git 负责传输和历史，不需要数据库。",
-            "云端由 webhook 唤醒，本地由 launchd 定时同步拉取（约 5 分钟），不常驻本地 Agent、不轮询模型；睡醒或断网只会延迟，不会丢状态。",
-            "附带任务协议、只拉取的同步脚本、GitHub Actions 通知模板，以及本地／云端两份 Agent skill，是一套照着部署的参考实现。"
+            "双向自动派发：本地交给云端的任务由 webhook 唤醒云端 Bot；云端交给本地的任务写上 Executor 字段，由本地 relay-runner 每 5 分钟自动领取，派给 Paseo 等 Agent 执行，做完写回结果。",
+            "安全边界写进实现：按任务显式 opt-in、单任务锁、干净工作区检查、目录白名单，角色或模型不可用就标 blocked 不偷换，发布删除部署这类操作只准备不执行。",
+            "附带任务协议、只拉取的同步脚本、可选的自动执行器、GitHub Actions 通知模板和本地／云端两份 Agent skill，是一套照着部署的参考实现。"
           ],
           "stack": [
             "Git",
@@ -84,7 +85,7 @@
             "Markdown"
           ],
           "links": [],
-          "stars": 13,
+          "stars": 14,
           "language": "Shell"
         },
         {
