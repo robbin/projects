@@ -2,7 +2,7 @@
   "site": {
     "title": "Robbin · 项目",
     "domain": "projects.fankai.me",
-    "identity": "范凯（Robbin），25 年技术研发与产品经验。创办 JavaEye，曾担任 CSDN 和丁香园 CTO，现在专注 AI 实践和课程。",
+    "identity": "2003 年创办 JavaEye，推动开源技术在中国开发者中的普及；曾任 CSDN、丁香园 CTO，带队打造服务上千万人的丁香医生在线问诊和上亿人使用的疫情地图。现在专注 AI 实践与课程，用 AI 创造价值，把个人能力经营成事业。下面这些项目，都是亲手写出来的代码。",
     "nav": [
       {
         "label": "主站",

@@ -83,8 +83,7 @@ a:hover { text-decoration: underline; }
 .hero::before {
   content: ""; position: absolute; inset: 0 -30vw; z-index: -1;
   background:
-    radial-gradient(600px 300px at 18% 20%, var(--hero-glow), transparent 70%),
-    linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 100% 32px;
+    radial-gradient(600px 300px at 18% 20%, var(--hero-glow), transparent 70%);
   -webkit-mask-image: linear-gradient(#000, transparent 92%); mask-image: linear-gradient(#000, transparent 92%);
   opacity: .9;
 }
@@ -163,3 +162,9 @@ main { max-width: var(--measure); margin: 0 auto; padding: 0 24px; }
   .site-footer { padding: 20px 16px 40px; }
 }
 @media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
+
+/* 整卡可点：标题链接铺满卡片，其他链接浮在上层 */
+.card { cursor: pointer; }
+.card-head h3 a::after { content: ""; position: absolute; inset: 0; border-radius: 14px; z-index: 1; }
+.card a:not(.card-head h3 a) { position: relative; z-index: 2; }
+.card:hover .card-head h3 a { color: var(--accent); }
