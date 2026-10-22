@@ -145,14 +145,19 @@ main { max-width: var(--measure); margin: 0 auto; padding: 0 24px; }
 /* Responsive */
 @media (max-width: 720px) {
   body { font-size: 16px; }
-  .header-bar { flex-wrap: wrap; gap: 6px 12px; padding: 10px 16px; }
-  .brand { flex: 1; }
-  .site-nav { order: 3; flex-basis: 100%; margin: 0 -10px; }
-  .site-nav a { padding: 4px 10px; }
+  .header-bar { gap: 8px; padding: 10px 14px; }
+  .brand { gap: 6px; font-size: 16px; }
+  .brand-sep, .brand-en, .nav-arrow { display: none; }
+  .site-nav a { white-space: nowrap; }
+  .site-nav { gap: 0; justify-content: center; }
+  .site-nav a { padding: 4px 6px; font-size: 14.5px; }
+  .social-link { width: 30px; }
   .hero { padding: 44px 18px 36px; }
   .identity { font-size: 17px; }
-  .hero-stats > div { padding-right: 20px; margin-right: 20px; }
-  .hero-stats dd { font-size: 30px; }
+  .hero-stats { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; }
+  .hero-stats > div { padding-right: 14px; margin-right: 14px; }
+  .hero-stats dt { font-size: 12px; letter-spacing: 0; white-space: nowrap; }
+  .hero-stats dd { font-size: 28px; }
   main { padding: 0 16px; }
   .section-head h2 { font-size: 25px; }
   .card { padding: 22px 20px 18px; }

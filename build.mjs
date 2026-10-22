@@ -202,7 +202,7 @@ const html = `<!doctype html>
 <body>
   <header class="site-header">
     <div class="header-bar">
-      <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">范</span>范凯<span class="brand-sep">/</span>Robbin</a>
+      <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">范</span>范凯<span class="brand-sep">/</span><span class="brand-en">Robbin</span></a>
       <nav class="site-nav" aria-label="主站导航">
         ${nav}
       </nav>
