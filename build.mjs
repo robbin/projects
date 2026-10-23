@@ -135,9 +135,10 @@ function renderCard(project) {
         </span>`);
   }
 
-  return `      <article class="card${isFeatured ? " card-featured" : ""}">
+  return `      <article class="card${isFeatured ? " card-featured" : ""}" id="${escapeHtml(project.name)}">
         <header class="card-head">
           <h3><a href="${repoUrl}" target="_blank" rel="noopener">${escapeHtml(project.name)}</a></h3>
+          <a class="anchor" href="#${escapeHtml(project.name)}" aria-label="复制 ${escapeHtml(project.name)} 的链接" title="本项目链接">#</a>
           ${isFeatured ? '<span class="badge">精选</span>' : ""}
         </header>
         <p class="tagline">${escapeHtml(project.tagline).replace(/\n/g, "<br>")}</p>

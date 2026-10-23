@@ -174,3 +174,10 @@ main { max-width: var(--measure); margin: 0 auto; padding: 0 24px; }
 .card-head h3 a::after { content: ""; position: absolute; inset: 0; border-radius: 14px; z-index: 1; }
 .card a:not(.card-head h3 a) { position: relative; z-index: 2; }
 .card:hover .card-head h3 a { color: var(--accent); }
+
+/* 项目锚点 */
+.card { scroll-margin-top: 80px; }
+.card-head .anchor { position: relative; z-index: 2; color: var(--muted, #999); font-weight: 700; font-size: 20px; text-decoration: none; opacity: .35; transition: opacity .15s; }
+.card:hover .card-head .anchor, .card-head .anchor:focus { opacity: 1; }
+.card-head .anchor:hover { color: var(--accent); }
+.card:target { outline: 2px solid var(--accent); outline-offset: 4px; }
