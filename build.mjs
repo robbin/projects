@@ -188,6 +188,14 @@ const html = `<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L73LSS6JJ1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L73LSS6JJ1');
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <title>${escapeHtml(site.title)}</title>
