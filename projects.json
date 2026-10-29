@@ -40,7 +40,7 @@
     {
       "id": "recent",
       "title": "近期项目（AI / Agent）",
-      "description": "围绕 Agent 的工程实践：让 Agent 能接力干活、能看新闻、能操作手机，也能从旧应用里把数据取出来。",
+      "description": "围绕 Agent 的工程实践：让 Agent 能接力干活、能操作手机，也能从旧应用里把数据取出来。",
       "projects": [
         {
           "id": "grokbot-local-agent",
@@ -88,31 +88,6 @@
           "links": [],
           "stars": 21,
           "language": "Shell"
-        },
-        {
-          "id": "x-news",
-          "name": "x-news",
-          "repo": "robbin/x-news",
-          "featured": false,
-          "tagline": "社区热点新闻站 aitimeline.news 的源码：报告用 Markdown 写，导航和首页在构建时生成。",
-          "highlights": [
-            "Daily、中文话题和英文话题三类报告按目录增删即可，hooks/autonav.py 在构建时生成导航、分类 index 和首页，不用手改 mkdocs.yml。",
-            "中英文用 mkdocs-static-i18n 的后缀布局，根路径是中文、/en/ 是英文，缺英文稿自动回退；页头、首页和页脚订阅入口由 presentation.py 注入。",
-            "push 到 main 由 GitHub Actions 构建发布到 GitHub Pages，报告本身由 News bot 通过 x-research 技能生成，仓库里不放凭据和订阅者数据。"
-          ],
-          "stack": [
-            "MkDocs Material",
-            "Python",
-            "GitHub Pages"
-          ],
-          "links": [
-            {
-              "label": "aitimeline.news",
-              "href": "https://aitimeline.news/"
-            }
-          ],
-          "stars": 7,
-          "language": "Python"
         },
         {
           "id": "android-adb-control",
