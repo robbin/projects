@@ -10,7 +10,7 @@
       },
       {
         "label": "新闻站",
-        "href": "https://news.fankai.me/"
+        "href": "https://aitimeline.news/"
       },
       {
         "label": "课程站",
@@ -94,7 +94,7 @@
           "name": "x-news",
           "repo": "robbin/x-news",
           "featured": false,
-          "tagline": "社区热点新闻站 news.fankai.me 的源码：报告用 Markdown 写，导航和首页在构建时生成。",
+          "tagline": "社区热点新闻站 aitimeline.news 的源码：报告用 Markdown 写，导航和首页在构建时生成。",
           "highlights": [
             "Daily、中文话题和英文话题三类报告按目录增删即可，hooks/autonav.py 在构建时生成导航、分类 index 和首页，不用手改 mkdocs.yml。",
             "中英文用 mkdocs-static-i18n 的后缀布局，根路径是中文、/en/ 是英文，缺英文稿自动回退；页头、首页和页脚订阅入口由 presentation.py 注入。",
@@ -107,8 +107,8 @@
           ],
           "links": [
             {
-              "label": "news.fankai.me",
-              "href": "https://news.fankai.me/"
+              "label": "aitimeline.news",
+              "href": "https://aitimeline.news/"
             }
           ],
           "stars": 7,
