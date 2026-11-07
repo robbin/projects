@@ -91,18 +91,30 @@ with sync_playwright() as p:
 PY
 ```
 
-## Cloudflare Pages 设置
+## Cloudflare Pages 发布
 
 | 项目 | 值 |
 | --- | --- |
-| Framework preset | None |
-| Build command | `node build.mjs` |
-| Build output directory | `/` |
-| Node version | 22（可用 `NODE_VERSION=22` 环境变量固定） |
+| Pages 项目 | `fankai-projects` |
+| 默认域名 | `fankai-projects.pages.dev` |
 | 自定义域名 | `projects.fankai.me` |
+| 生产分支 | `main` |
+| 发布方式 | Wrangler Direct Upload，未关联 Git Provider |
 
-仓库根目录即站点根目录：`index.html`、`assets/style.css` 会被直接发布。构建时对 GitHub API 的匿名请求若被限速，会沿用仓库里上次写入的 star / 语言数据，页面照常生成；需要绝对可重复构建时可把构建命令改为 `node build.mjs --offline`，定期在本地跑完整构建并提交数据。
+更新时先运行 `node build.mjs`，检查并提交 `projects.json` 和生成的 `index.html`，再推送 GitHub。**仅 `git push` 不会更新线上站点。** GitHub API 请求失败时构建会保留旧值，因此发布前还须检查构建日志，不能把旧值称为本次已刷新。
+
+只发布 `index.html` 与 `assets/` 中的静态资源，不上传整个仓库、源码、凭据或本地缓存。将这两项复制到仓库外的专用发布目录后执行：
+
+```bash
+wrangler pages deploy /absolute/path/to/public \
+  --project-name fankai-projects \
+  --branch main \
+  --commit-hash "$(git rev-parse HEAD)" \
+  --commit-dirty=false
+```
+
+命令需从本仓库已提交且无待发布修改的工作区运行，并使用已有的 Cloudflare 授权；不要把凭据写入仓库。发布后读取精确 deployment，确认生产环境、完整提交 SHA 和成功状态，再核对自定义域名上的页面与静态资源。
 
 ## 部署边界
 
-本仓库不包含部署配置自动推送；没有 `git push`、没有 DNS 变更。域名与 Pages 项目由所有者手动绑定。
+构建脚本不执行 `git push`、部署或 DNS 变更。发布需要明确授权；本次更新不改变域名绑定、账户权限或部署方式。
